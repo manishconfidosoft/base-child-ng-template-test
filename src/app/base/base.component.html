@@ -1,0 +1,12 @@
+<p>
+  base works!
+</p>
+
+<ng-container *ngTemplateOutlet="okCancel"></ng-container>
+
+
+<ng-template #okCancel>
+<button (click)="onOk()">Ok</button>
+<button (click)="onCancel()">Cancel</button>
+
+</ng-template>
