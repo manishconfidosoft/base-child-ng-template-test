@@ -1,11 +1,5 @@
 <p>
   child2 works!
 </p>
-<ng-container *ngTemplateOutlet="okCancel"></ng-container>
-
-
-<ng-template #okCancel>
-<button (click)="onOk()">Ok</button>
-<button (click)="onCancel()">Cancel</button>
-
-</ng-template>
+<!-- <ng-container *ngTemplateOutlet="okCancel; context:ctx"></ng-container> -->
+<div [ngTemplateOutlet]="okCancel" [ngTemplateOutletContext]="ctx"></div>

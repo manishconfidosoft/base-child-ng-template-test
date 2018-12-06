@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
+import { TemplateService } from '../template.service';
 
 @Component({
   selector: 'app-child2',
@@ -7,19 +8,22 @@ import { BaseComponent } from '../base/base.component';
   styleUrls: ['./child2.component.scss']
 })
 export class Child2Component extends BaseComponent {
-
-  constructor() { 
+  okCancel: ElementRef;
+ctx:any;
+  constructor(private _templateService: TemplateService) {
     super();
-  }
 
+  }
   ngOnInit() {
+    this.okCancel = this._templateService.okCancel;
+    this.ctx = {$implicit:'test', onOk:this.onOk};
   }
 
-  onOk(){
+  onOk() {
     console.log('ok from child2');
   }
 
-  onCancel(){
+  onCancel() {
     console.log('cancel from child2');
   }
 }
